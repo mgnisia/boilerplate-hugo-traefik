@@ -5,7 +5,7 @@ This repo contains the basic layout for the deployment of a [hugo](https://githu
 Modifications to the setup of `jojomi` are:
 
 - replacing `nginx` with the speed version `pagespeed/nginx-pagespeed`
-- replacing the target directory from `/var/www` to ``
+- replacing the target directory from `/var/www` to `/usr/share/nginx/html:ro`
 
 ## Assumptions:
 
