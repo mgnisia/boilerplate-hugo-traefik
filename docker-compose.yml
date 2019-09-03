@@ -26,7 +26,6 @@ services:
       - "traefik.frontend.rule=Host:yoururl.com"
       - "traefik.port=80"
 
-
 networks:
   your-traefik-network:
     external: true
