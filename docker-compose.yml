@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  
+  hugo_deploy:
+    image: jojomi/hugo:latest
+    volumes:
+      - ./site/:/src
+      - /home/username/folder_for_deployment:/output
+    networks:
+      - your-traefik-network
+    environment:
+      - HUGO_REFRESH_TIME=600
+      - HUGO_THEME=ananke
+      - HUGO_BASEURL=https://yoururl.com
+
+  web_deploy:
+    image: pagespeed/nginx-pagespeed
+    volumes:
+      - /home/username/folder_for_deployment:/usr/share/nginx/html:ro
+    networks:
+      - your-traefik-network
+    labels:
+      - "traefik.backend=web_deploy"
+      - "traefik.docker.network=your-traefik-network"
+      - "traefik.frontend.rule=Host:yoururl.com"
+      - "traefik.port=80"
+
+
+networks:
+  your-traefik-network:
+    external: true
