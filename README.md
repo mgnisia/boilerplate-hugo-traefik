@@ -21,4 +21,4 @@ Modifications to the setup of `jojomi` are:
 3. Set you network
 4. Define the Host rule
 5. run `docker-compose up -d`
-6. You should now your `hugo` website :slush:
+6. You should now your `hugo` website :blush:
